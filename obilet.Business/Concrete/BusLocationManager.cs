@@ -27,7 +27,7 @@ namespace obilet.Business.Concrete
                 return _apiService.Post<BaseResultModel<List<BusLocationResultModel>>>(EndPoints.GetBusLocation, requesModel).Result.Data;
 
             }
-            catch (System.Exception ex)
+            catch
             {
 
                 return new List<BusLocationResultModel>();

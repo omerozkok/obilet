@@ -29,10 +29,10 @@ namespace obilet.Business.Abstract
                 return _apiService.Post<BaseResultModel<List<BusJourneyResultModel>>>(EndPoints.GetBusJourneys, requesModel).Result.Data;
 
             }
-            catch (System.Exception ex)
+            catch 
             {
 
-                return null;
+                return new List<BusJourneyResultModel>();
             }
         }
     }

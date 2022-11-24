@@ -41,7 +41,7 @@ namespace obilet.Business.Concrete
                 };
                 return await _apiService.Post<BaseResultModel<SessionDataResultModel>>(EndPoints.GetSession, session);               
             }
-            catch (Exception ex)
+            catch 
             {
                 return null;
             }
