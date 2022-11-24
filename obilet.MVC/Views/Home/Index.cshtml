@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Sefer bul";
+}
+
+
+
+    <div class="p-3 mb-3 bg-primary"  height:40px;">
+            <h5 class="my-0 font-weight-bold text-white"> </h5>
+        </div>
+
+        <form name="indexForm" action="~/home/FindJourney" onsubmit="return validateForm()">
+            <div class="row">
+                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label for="origin" class="font-weight-bold text-primary">Nereden</label>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
+                        </div>
+
+                        @Html.DropDownList("OriginId", (SelectList)ViewBag.busLocationList, new { @id = "origin", @class = "form-control form-control-lg" })
+
+                    </div>
+
+                </div>
+
+                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label for="destination" class="font-weight-bold text-primary">Nereye</label>
+                    <button type="button" class="btn btn-primary btn-sm float-right" onclick="changeLocation()"><i class="fa fa-retweet"></i></button>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                        </div>
+                        @Html.DropDownList("DestinationId", (SelectList)ViewBag.busLocationList, new { @id = "destination", @class = "form-control form-control-lg" })
+                    </div>
+
+                </div>
+
+            </div>
+            
+            
+
+            <div class="form-group">
+                <label for="departureDate" class="font-weight-bold text-primary">Tarih</label>
+
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="datetime-local" class="form-control" id="departureDate" name="departureDate" max="2035-12-31">
+
+                    <button type="button" class="btn btn-secondary ml-1" onclick="getToday()">Bugün</button>
+                    <button type="button" class="btn outline-secondary ml-1" onclick="getTomorrow()">Yarın</button>
+
+                </div>
+
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Bileti Bul</button>
+            </div>
+        </form>
+

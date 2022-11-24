@@ -1,0 +1,37 @@
+﻿@model List<obilet.Entities.Model.Journey.BusJourneyResultModel>
+@{
+    ViewData["Title"] = "Sefer bul";
+}
+
+<div class="p-3 bg-primary">
+    <h5 class="my-0 font-weight-bold text-white text-center">
+        <a href="~/home/" class="from-control btn text-white"><i class="fa fa-chevron-left"></i></a>
+        @Model.Select(x => x.OriginLocation).FirstOrDefault() - @Model.Select(x => x.DestinationLocation).FirstOrDefault()
+        
+    </h5>
+    <h6 class="text-center text-white">@ViewBag.DateStr</h6>
+</div>
+
+@foreach (var item in Model)
+{
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-9">
+                <p style="font-size:14px">KALKIŞ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; VARIŞ</p>
+                @if (@item.Journey.Arrival.HasValue)
+                {
+                    <p class="font-weight-bold"> @item.Journey.Departure.Value.ToString("HH:mm") 
+                <i class="fa fa-long-arrow-right"></i> @item.Journey.Arrival.Value.ToString("HH:mm")</p>}
+
+            </div>
+            <div class="col-3">
+                <small class="btn btn-danger" type="button" name="name">@item.Journey.OriginalPrice @item.Journey.Currency</small>
+
+            </div>
+        </div>
+        <p class="card-text">@item.Journey.Origin - @item.Journey.Destination </p>
+
+    </div>
+</div>}
