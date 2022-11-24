@@ -35,6 +35,7 @@ namespace obilet.MVC.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult FindJourney(BusJourneyRequestModel model)
         {
             ViewBag.DateStr = model.departureDate.ToLongDateString();
